@@ -1,0 +1,52 @@
+
+td{ font-family: arial; font-size: 17px;}
+td.mod{
+	width: 200px;
+}
+
+tr{
+	border: 0px 1px 1px 1px solid black;
+}
+
+ul {
+    padding: 0;
+    list-style-type: none;
+}
+body{ font-family: arial; font-size: 11px;}
+
+.gray{
+	background-color:gray;
+}
+
+.top{
+	background-color:#000000;
+	font-family: verdana;
+	color:#ffffff;
+		padding:25px 25px 25px 25px;
+}
+
+
+
+.odd{
+/*	background-color:#ada96e;*/
+	background-color:#deeaee;
+	font-family: verdana;
+	color: #000000;
+	padding:25px 25px 25px 25px;
+}
+
+.even{
+	background-color:#eea29a;
+	font-family: verdana;
+	color: #000000;
+	padding:25px 25px 25px 25px;
+}
+
+a.visited{
+	color:black;
+}
+
+a{
+	color:black;
+}
+

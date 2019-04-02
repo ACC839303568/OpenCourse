@@ -1,0 +1,448 @@
+<html>
+<title>10725/36726: CONVEX OPTIMIZATION</title>
+<head>
+  <link href="style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+	<h1>CONVEX OPTIMIZATION</h1>
+	<table border="0" cellpadding=1 cellspacing=1> 
+	<tr> <td> <b> 10-725/36-725, Fall 2017<b></td> </tr> 
+	<tr> <td>WH 7500, Mon & Wed 1:30 - 2:50 PM </td> </tr> 
+</table> 
+
+<br>
+<table border=0 cellpadding=1 cellspacing=1> 
+
+<tr>
+<td align="left" width="150" valign="top"> <b> Instructors</b> </td> 
+<td>
+<a href="http://www.cs.cmu.edu/~pradeepr">Pradeep Ravikumar</a> (pradeepr at cs dot cmu dot edu)<br>
+<a href="http://www.cs.cmu.edu/~aarti">Aarti Singh</a> (aarti at cs dot cmu dot edu)<br><br>
+</td>
+</tr>
+
+<tr>
+<td align="left" width="150" valign="top"> <b> Teaching Assistants</b> </td> 
+<td>
+<a href="">Hao Gu</a> (hg1 at andrew dot cmu dot edu)<br>
+	<a href="">Devendra Sachan</a> (dsachan at andrew dot cmu dot edu)<br>
+	<a href="http://www.cs.cmu.edu/~yifengt/">Yifeng Tao</a> (yifengt at andrew dot cmu dot edu)<br>
+	<a href="http://xycking.wixsite.com/yichongxu">Yichong Xu</a> (yichongx at andrew dot cmu dot edu)<br>
+ 	<a href="http://www.cs.cmu.edu/~hongyanz/">Hongyang Zhang</a> (hongyanz at andrew dot cmu dot edu)<br>
+<br>
+</td>
+</tr>
+
+
+<tr>
+<td align="left" width="150" valign="top">  <b>Office Hours</b> </td> 
+<td> 
+	Pradeep Ravikumar: GHC 8111, Mondays 3:00-4:00 PM<br>
+	Aarti Singh: GHC 8207, Wednesdays 3:00-4:00 PM <br>
+	Hao Gu: Citadel Teaching commons, GHC 5th floor, Tuesdays 4:00-5:00 PM<br>
+	Devendra Sachan: LTI Open Space, 5th floor, Fridays 3:00-4:00 PM<br>
+	Yifeng Tao: GHC 7405, Mondays 10:00-11:00 AM<br>
+	Yichong Xu: GHC 8215, Tuesdays, 10:00-11:00 AM <br>
+	Hongyang Zhang: GHC 8008, Wednesdays 9:00-10:00 AM<br>
+	
+<br>
+</td>
+</tr>
+
+
+<!-- <tr>
+<td align="left" width="150" valign="top">   <b>Overview </b> </td>
+<td align="left" width="550">
+
+
+Nearly every problem in machine learning can be formulated as the optimization of some function, possibly under some set of constraints.  This universal reduction may seem to suggest that such optimization tasks are intractable. Fortunately, many real world problems have special structure, such as convexity, smoothness, separability, etc., which allow us to formulate optimization problems that can often be solved efficiently. This course is designed to give a graduate-level student a thorough grounding in the formulation of optimization problems that exploit such structure, and in efficient solution methods for these problems. The main focus is on the formulation and solution of convex optimization problems, though we will discuss some recent advances in guarantees for non-convex optimization. These general concepts will also be illustrated through applications in machine learning and statistics.  Students will work on an extensive optimization-based project throughout the semester.
+
+
+<br><br>
+</td>
+</tr> -->
+
+<tr>
+<td align="left" width="150" valign="top">   <b>Grading </b> </td>
+<td align="left" width="550"> 45% Homeworks, 5% Quizzes, 25% Little Tests, 25% Project
+<br><br>
+</td>
+</tr>
+
+<tr>
+<td align="left" width="150" valign="top">   <b>Textbooks</b> </td> 
+<td> Lectures are intended to be self-contained. For supplementary readings, with each lecture, we will have pointers to chapters from the following books:
+<ul>
+	<li>BV: Convex Optimization, Stephen Boyd and Lieven Vandenberghe, 
+(available <a href="http://www.stanford.edu/~boyd/cvxbook/">online for free</a>).</li> 
+	<li>DB: Nonlinear Programming, Dimitri P. Bertsekas.</li>
+	<li>NW: Numerical Optimization, Jorge Nocedal and Stephen Wright.</li>
+	<li>YN: Introductory lectures on convex optimization: a basic course, Yurii Nesterov.</li>
+<br><br>
+</tr>
+
+<tr>
+<td align="left" width="150" valign="top">   <b>Course Details</b> </td>
+<td> <a href="Syllabus.pdf">Syllabus</a>. <a href="https://piazza.com/cmu/fall2017/1072536725/home">Piazza Discussion Board</a>. <a href="#homeworks">Homeworks</a>. <a href="#project">Project.</a>
+<br><br>
+</tr>
+
+
+
+<tr>
+<td align="left" width="150" valign="top">   <b>Tentative Schedule </b> </td>
+<td align="left" width="950"> 
+
+<table border="0" cellpadding=15 cellspacing=1> 
+		<tr class="top"> 
+			<td> Date</td>
+			<td> Topic </td> 
+			<td> Inst. </td>
+			<td> Quiz </td> 
+			<td> Readings </td>
+			<td> Notes </td> 
+		
+		</tr> 
+
+		<tr>
+		<td colspan=6 class=gray><b>Module: Basics</b></td>
+		</tr>
+	
+		<tr class="odd">
+			<td> Aug 28 </td>
+			<td>Intro (<a href="Lecture_Slides/intro.pdf">slides</a>)</td>
+			<td>AS</td>
+			<td><a href="https://qna.cs.cmu.edu/#/pages/view/150">quiz</a> </td>
+			<td> </td>
+			<td> </td>
+		</tr> 
+		
+		<tr class="odd">
+			<td>Aug 30</td>
+			<td>Convex Sets, Functions (<a href="Lecture_Slides/convex-fns.pdf">slides</a>, <a href="Lecture_Slides/Lec2notes.pdf">notes</a>)</td>
+			<td>AS</td>
+			<td><a href="https://qna.cs.cmu.edu/#/pages/view/152">quiz</a> </td>
+			<td>BV Chap. 2,3</td>
+			<td><a href="HWs/hw1a.pdf">HW 1a</a> out (Sept 1) </td>
+		</tr>
+		
+		<tr class="odd">
+			<td>Sep 06</td>
+			<td>Convex Opt. (<a href="Lecture_Slides/convex-opt.pdf">slides</a>, <a href="Lecture_Slides/Lec3notes.pdf">notes</a>) </td>
+			<td>AS</td>
+			<td><a href="https://qna.cs.cmu.edu/#/pages/view/160">quiz</a> </td>
+			<td>BV Chap. 4</td>
+			<td> <a href="HWs/hw1.pdf">HW 1b</a> out (Sept 6) </td>
+		</tr>
+		
+		
+		<tr class="odd">
+			<td>Sep 11</td>
+			<td>Canonical Forms (<a href="Lecture_Slides/convex-opt-forms.pdf">slides</a>) </td>
+			<td>PR</td>
+			<td><a href="https://qna.cs.cmu.edu/#/pages/view/167">quiz</a> </td>
+			<td>BV Chap. 6,7,8 </td>
+			<td>HW1a due (Sept 11) </td>
+		</tr>
+		
+		<tr class="odd">
+			<td>Sep 13</td>
+			<td>Applications (<a href="Lecture_Slides/convex-opt-applications.pdf">slides</a> )</td>
+			<td>PR</td>
+			<td><a href="https://qna.cs.cmu.edu/#/pages/view/169">quiz</a> </td>
+			<td>BV Chap. 6,7,8  </td>
+			<td>HW1b due, <a href="HWs/hw2_pb.pdf">HW 2 out</a> (Sept 15) </td>	
+		</tr>
+		
+		<tr>
+		<td colspan=6 class=gray><b>Module: Unconstrained</b></td>
+		</tr>
+		
+		<tr class="odd">
+			<td>Sep 18</td>
+			<td>Descent Alg., Line Search (<a href="Lecture_Slides/Descent-Line-Search.pdf">slides</a> )</td>
+			<td>PR</td>
+			<td><a href="https://qna.cs.cmu.edu/#/pages/view/177">quiz</a> </td>
+			<td>NW Chap. 3  </td>
+			<td> </td>	
+		</tr>
+		
+		<tr class="odd">
+			<td>Sep 20</td>
+			<td>Gradient Descent (<a href="Lecture_Slides/Gradient-Descent.pdf">slides</a> ) </td>
+			<td>PR</td>
+			<td> <a href="https://qna.cs.cmu.edu/#/pages/view/176">quiz</a> </td>
+			<td>NW Chap. 3  </td>
+			<td> </td>	
+		</tr>
+		
+		<tr class="odd">
+			<td>Sep 25</td>
+			<td>Conjugate Grad. Desc.(<a href="Lecture_Slides/conjugate_direction_methods.pdf">slides</a> ) </td>
+			<td>AS</td>
+			<td> <a href="https://qna.cs.cmu.edu/#/pages/view/181">quiz</a> </td>
+			<td>NW Chap. 5<br>
+			    CGThmProof (<a href="https://sites.math.washington.edu/~burke/crs/408/lectures/L14-CG.pdf">slides24-38</a>)  </td>
+			<td> </td>	
+		</tr>
+		
+		<tr class="odd">
+			<td>Sep 27</td>
+			<td>Accel. Grad. Desc. (<a href="Lecture_Slides/acceleration.pdf">slides</a> ) </td>
+			<td>PR</td>
+			<td> <a href="https://qna.cs.cmu.edu/#/pages/view/183">quiz</a> </td>
+			<td>YN Chap. 2  </td>
+			<td>HW2 due, <a href="HWs/hw3.pdf">HW3 out</a>(Sept 29) </td>	
+		</tr>
+		
+		<tr class="odd">
+			<td>Oct 02</td>
+			<td>Newton Methods (<a href="Lecture_Slides/Newton_methods.pdf">slides</a> ) </td>
+			<td>AS</td>
+			<td> <a href="https://qna.cs.cmu.edu/#/pages/view/186">quiz</a> </td>
+			<td>NW Chap. 3<br> <a href="http://users.ece.utexas.edu/~cmcaram/EE381V_2012F/Lecture_7_Scribe_Notes.final.pdf">Convergence</a>  </td>
+			<td>Project proposal due (Oct 6) </td>	
+		</tr>
+
+                <tr class="odd">
+                        <td>Oct 04</td>
+                        <td>Quasi Newton (<a href="Lecture_Slides/Quasi-Newton.pdf">slides</a> ) </td>
+                        <td>AS</td>
+                        <td> <a href="https://qna.cs.cmu.edu/#/pages/view/191">quiz</a> </td>
+                        <td>NW Chap. 3  </td>
+                        <td> </td>
+                </tr>
+
+		
+                
+                <tr class="odd">
+                        <td>Oct 11</td>
+                        <td>Trust Region (<a href="Lecture_Slides/trust-region.pdf">slides</a> ) </td>
+                        <td>PR</td>
+                        <td> <a href="https://qna.cs.cmu.edu/#/pages/view/196">quiz</a> </td>
+                        <td>NW Chap. 4</td>
+                        <td>HW3 due (Oct 13)</td>
+                </tr>
+		
+		<tr>
+		<td colspan=6 class=gray><b>Module: Constrained: Simple Convex Sets</b></td>
+		</tr>
+                
+                <tr class="odd">
+                        <td>Oct 09</td>
+                        <td>Proximal, Projected Grad. Desc. (<a href="Lecture_Slides/prox-grad_2.pdf">slides</a>, <a href="Lecture_Slides/Lec12notes.pdf">notes</a>) </td>
+                        <td>AS</td>
+                        <td> <a href="https://qna.cs.cmu.edu/#/pages/view/193">quiz</a> </td>
+                        <td>DB Chap. 2</td>
+                        <td> </td>
+                </tr>
+
+		<tr class="even">
+			<td>Oct 16</td>
+			<td>Little Test I</td>
+			<td> </td>
+			<td> </td>
+			<td> </td>
+			<td> </td>	
+		</tr>
+
+                <tr class="odd">
+                        <td>Oct 18</td>
+                        <td>Cond. Gradient/Frank Wolfe (<a href="Lecture_Slides/cond-grad.pdf">slides</a>, <a href="Lecture_Slides/Lec14notes.pdf">notes</a>) </td>
+                        <td>AS</td>
+                        <td> <a href="https://qna.cs.cmu.edu/#/pages/view/201">quiz</a> </td> 
+                        <td>DB Chap. 2</td>
+                        <td> </td>
+                </tr>
+
+		
+		<tr>
+		<td colspan=6 class=gray><b>Module: Constrained: Lagrange Methods</b></td>
+		</tr>
+		
+		<tr class="odd">
+			<td>Oct 23</td>
+			<td>Lagrange Mult. Theory (<a href="Lecture_Slides/lagrange-multipliers.pdf">slides</a>) </td>
+			<td>PR</td>
+			<td> <a href="https://qna.cs.cmu.edu/#/pages/view/203">quiz</a> </td>
+			<td>DB Chap. 3</td>
+			<td>HW4 out (Oct 20)</td>	
+		</tr>
+		
+		<tr class="odd">
+			<td>Oct 25</td>
+			<td>Barrier Methods (<a href="Lecture_Slides/barrier-methods.pdf">slides</a>) </td>
+			<td>PR</td>
+			<td> <a href="https://qna.cs.cmu.edu/#/pages/view/204">quiz</a> </td>
+			<td>DB Chap. 4</td>
+			<td> </td>	
+		</tr>
+		
+		<tr class="odd">
+			<td>Oct 30</td>
+			<td>Augmented Lagrangian (<a href="Lecture_Slides/Augmented-lagrangian.pdf">slides</a>) </td>
+			<td>AS</td>
+			<td> <a href="https://qna.cs.cmu.edu/#/pages/view/211">quiz</a> </td>
+			<td>DB Chap. 4</td>
+			<td> </td>	
+		</tr>
+		
+		<tr class="odd">
+			<td>Nov 01</td>
+			<td>ADMM, Primal Dual Interior Point Methods (<a href="Lecture_Slides/ADMM.pdf">slides</a>) (<a href="Lecture_Slides/primal-dual.pdf">slides</a>) </td>
+			<td>AS</td>
+			<td> <a href="https://qna.cs.cmu.edu/#/pages/view/213">quiz</a> </td>
+			<td>DB Chap. 4</td>
+			<td> </td>	
+		</tr>
+		
+		<tr>
+		<td colspan=6 class=gray><b>Module: Constrained: Dual Methods</b></td>
+		</tr>
+		
+		<tr class="odd">
+			<td>Nov 06</td>
+			<td>Duality Theory (<a href="Lecture_Slides/dual-lps.pdf">slides</a>)</td>
+			<td>AS</td>
+			<td> <a href="https://qna.cs.cmu.edu/#/pages/view/216">quiz</a> </td>
+			<td>DB Chap. 5</td>
+			<td>HW4 due, HW5 out (Nov 4) </td>	
+		</tr>
+		
+		<tr class="odd">
+			<td>Nov 08</td>
+			<td>Duality Theory (<a href="Lecture_Slides/dual-gen.pdf">slides</a>) </td>
+			<td>AS</td>
+			<td> <a href="https://qna.cs.cmu.edu/#/pages/view/221">quiz</a> </td>
+			<td>DB Chap. 5</td>
+			<td> </td>	
+		</tr>
+		
+		<tr class="odd">
+			<td>Nov 13</td>
+			<td>Dual Ascent (<a href="Lecture_Slides/dual-ascent.pdf">slides</a>) </td>
+			<td>AS</td>
+			<td> <a href="https://qna.cs.cmu.edu/#/pages/view/222">quiz</a> </td>
+			<td>DB Chap. 6</td>
+			<td> </td>	
+		</tr>
+		
+		<tr class="odd">
+			<td>Nov 15</td>
+                        <td>Coordinate Descent (<a href="Lecture_Slides/coordinate_descent.pdf">slides</a>) </td>
+			<td>PR</td>
+			<td> <a href="https://qna.cs.cmu.edu/#/pages/view/224">quiz</a> </td>
+			<td>NW Chap. 9</td>
+			<td> </td>	
+		</tr>
+		
+		<tr class="odd">
+			<td>Nov 20</td>
+                        <td>Subgradients, Cutting Plane Methods (<a href="Lecture_Slides/cutting_planes.pdf">slides</a>) </td>
+			<td>PR</td>
+			<td> <a href="https://qna.cs.cmu.edu/#/pages/view/228">quiz</a> </td>
+			<td>DB Chap. 6</td>
+			<td>HW5 due (Nov 18) </td>	
+		</tr>
+		
+		
+		<tr>
+		<td colspan=6 class=gray><b>Module: Misc. Frameworks</b></td>
+		</tr>
+
+		<tr class="even">
+                        <td>Nov 22</td>
+                        <td>No Class, Thanksgiving Break</td>
+                        <td> </td>
+                        <td> </td>
+                        <td> </td>
+                        <td>Project midterm due (Nov 22) </td>
+                </tr>
+
+		
+		<tr class="odd">
+			<td>Nov 27</td>
+			<td>Discrete Optimization: Relaxations, Branch and Bound (<a href="Lecture_Slides/Discrete_Optimization.pdf">slides</a>) </td>
+			<td>PR</td>
+			<td> <a href="https://qna.cs.cmu.edu/#/pages/view/231">quiz</a> </td>
+			<td>DB Chap. 5</td>
+			<td> </td>	
+		</tr>
+	
+	
+		<tr class="odd">
+			<td>Nov 29</td>
+			<td>Stochastic Optimization (<a href="Lecture_Slides/stochastic_optimization_methods.pdf">slides</a>) </td>
+			<td>PR</td>
+			<td> <a href="https://qna.cs.cmu.edu/#/pages/view/232">quiz</a> </td>
+			<td> Papers </td>
+			<td> </td>	
+		</tr>
+		
+		<tr class="odd">
+			<td>Dec 04</td>
+			<td>Non-smooth Optimization (<a href="Lecture_Slides/sg-method.pdf">slides</a>) </td>
+			<td>PR</td>
+			<td> </td>
+			<td>YN Chap. 3</td>
+			<td> </td>	
+		</tr>
+		
+		<tr class="even">
+			<td>Dec 06</td>
+			<td>Little Test II</td>
+			<td> </td>
+			<td> </td>
+			<td> </td>
+			<td> </td>	
+		</tr>
+		
+		<tr class="even">
+			<td>Dec 13</td>
+			<td>Project Poster Pres.</td>
+			<td> </td>
+			<td> </td>
+			<td> </td>
+			<td>Project final report due (Dec 15) </td>	
+		</tr>
+		
+</table>
+</td>
+</tr>
+
+<tr> <td> <br></td> </tr>
+<tr>	
+<td align="left" width="150" valign="top">   <b><a name="homeworks">Homeworks</a></b></td>
+<td> <!--To be released.-->
+	<ul>
+		<br><br>
+		<li> <a href="HWs/hw1.pdf">HW 1 out</a>. Prob 1-3 Due Sept 11, 5:00 pm, Prob 4 Due Sept 15 5:00 pm (for data files, please see Resources section in course Piazza page).<br></li>
+                <li> <a href="HWs/hw2_pb.pdf">HW 2 out</a>. Due Sept 29, 5:00 pm <br></li>
+		<li> <a href="HWs/hw3.pdf">HW 3 out</a>. Due Oct 13, 5:00 pm <br></li>
+                <li> <a href="HWs/hw4.pdf">HW 4 out</a>. Due Nov 4, 11:59 pm <br></li>
+		<li> <a href="HWs/hw5.pdf">HW 5 out</a>. Due Nov 18, 11:59 pm <br></li>
+		
+		<!--<li> Little Test I on xxx.</li> <br>-->
+			
+		
+	</ul>
+</td>
+</tr>
+
+<tr>
+<td align="left" width="10" valign="top">   <b><a name="project">Project</a></b></td>
+<td> <!--To be released.-->
+        <ul>
+                <br><br>
+                <li> <a href="past_projects.html">Example projects from previous classes</a><br></li>
+                <li> <a href="milestone_1.html">Milestone 1</a>: Due Oct 06, 5:00 PM<br></li>
+                <li> <a href="milestone_2.html">Milestone 2</a>: Due Nov 22, 5:00 PM<br></li>
+                <br>
+        </ul>
+</td>
+</tr>
+</body>
+
+</html>
+	

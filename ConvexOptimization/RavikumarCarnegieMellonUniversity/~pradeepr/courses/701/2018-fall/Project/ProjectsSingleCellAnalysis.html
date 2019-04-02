@@ -1,0 +1,76 @@
+
+<!-- saved from url=(0042)http://www.cs.cmu.edu/~pradeepr/convexopt/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"><title>10701: INTRO TO MACHINE LEARNING </title>
+
+  <link href="style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+	<h1>INTRO TO MACHINE LEARNING PROJECTS: Single Cell Analysis</h1>
+	<table border="0" cellpadding="1" cellspacing="1"> 
+	<!-- <tbody><tr> <td> <b> 10-701, Fall 2018<b></b></b></td> </tr>  
+</tbody></table>  -->
+
+<br>
+<table border="0" cellpadding="1" cellspacing="1"> 
+
+<tbody><tr>
+<td align="left" width="150" valign="top"> <b> Single Cell Analysis Using Neural Networks</b> </td> 
+<td>
+<b>Background and summary:</b> A gene is a sequence of DNA containing instructions for building a single molecule. 
+While cells from the same individual share (roughly) the same DNA sequence that encodes genes, different cells use 
+different subsets of these genes, and at different levels. Single-cell RNA sequencing (scRNA-seq) measures the 
+activity levels of a set of annotated genes in a single cell, a vector with continues values that is termed
+‘gene expression profile’. The type of a cell (e.g., lung cell, brain cell, skin epidermis) is closely connected 
+with its gene expression profile.<br>
+<br>
+<b>Goal:</b> Predict the cell type using the expression profiles. This is an important goal. For example, when 
+taking a cancer biopsy the sample contains several different types of cells and the ability to accurately determine 
+the cell composition can have important impact on the type of treatment prescribed. Thus, accurately characterizing 
+the set of cells from the collected expression profiles is of much interest right now. <br> 
+<br>
+There could be many approaches to deal with this data. While we have found that NN are successful, you are not 
+required to use them here. Another approach that seems to work well with this data is to first perform dimesionality 
+reduction (using unsupervised or supervised methods) and then perform the classification in the reduced dimension 
+space. We list below some references that may be of help for thinking about how to work with this data.<br> 
+<br>
+While the goal listed above is the most natural task, there are many other things that can be done with this data and
+ these would also qualify for a project in this class. For example, we used the data to infer interactions between 
+ genes based on co-expression so it can be used to learn various networks (including Bayesian and others). While this
+ would be an interesting choice for a project it also require more biological knowledge than the classification task 
+ mentioned above and so may not be appropriate to most student in the class. If you have any other ideas on projects 
+ related to this data we would be happy to consider them as well.<br> 
+<br>
+<b>Input data:</b> The datasets used for this homework are drawn from 104 separate scRNA-seq experiments, each of which
+ profiles cells from different individuals or sets of individuals, and may focus on different cell types. For this 
+ project we provide both, the full dataset and a separate training and test sets since, as we discuss below, its not 
+ a trivial task for such data due to various artifacts that can arise. However, if you are not attempting to perform 
+ classification (for example, if you decided to focus on interactions instead) you should igorethis division and treat 
+ the two files the same.<br> 
+<br>
+For the training and test sets we made sure that there is no overlap in the set of experiments (i.e. studies) used; 
+however, the set of possible cell types seen in the test data is a subset of those appearing in the training data. This 
+is to ensure that the classifier does not learn to predict on experimental biases instead of gene expression profiles. <br>
+<br>
+<b>You have access to the following data:</b><br>
+all_data.h5: Contains a few structures including:<br> 
+1.	gene expression profiles (covariates) for all data (train+test); its n rows correspond to cells, and p columns 
+correspond to genes; the (i; j)th entry is measurement of the gene expression level of the jth gene in the ith cell in 
+the training set;<br>
+2.	Gene names for all genes<br>
+3.	Cell types for all rows<br>
+4.	Information on the source of the data for each experiment<br>
+<br>
+train_data.h5—  same as ‘all’ but only contained training data info<br>
+<br>
+test_data.h5 —  same for test data.<br>
+<br>
+Note that this dataset is large. Dataset is found here: <a href="https://drive.google.com/file/d/1tDnyUYs-N4-whBEsdshd9c9nkn64uo79/view?usp=sharing">
+DATA</a><br>
+<br>
+<b>Relevant papers:</b><br>
+<a href="https://academic.oup.com/nar/article/45/17/e156/4056711">Using Neural Networks for Reducing the Dimensions of Single-cell RNA</a><br>
+<a href="https://www.biorxiv.org/content/early/2018/05/16/323238">scQuery: A Web Server for Comparative Analysis of Single-cell RNA-seq Data</a><br>
+
+	
+</tbody></table></body></html>

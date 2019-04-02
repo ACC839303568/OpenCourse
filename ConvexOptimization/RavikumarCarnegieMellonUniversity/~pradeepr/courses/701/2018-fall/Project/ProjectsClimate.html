@@ -1,0 +1,73 @@
+
+<!-- saved from url=(0042)http://www.cs.cmu.edu/~pradeepr/convexopt/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"><title>10701: INTRO TO MACHINE LEARNING </title>
+
+  <link href="style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+	<h1>INTRO TO MACHINE LEARNING PROJECTS: CLIMATE DATA</h1>
+	<table border="0" cellpadding="1" cellspacing="1"> 
+	<!-- <tbody><tr> <td> <b> 10-701, Fall 2018<b></b></b></td> </tr>  
+</tbody></table>  -->
+
+<br>
+<table border="0" cellpadding="1" cellspacing="1"> 
+
+<tbody><tr>
+<td align="left" width="150" valign="top"> <b> Climate Data</b> </td> 
+<td>
+<b>Background and summary:</b> Climate data provides a perfect playground for experimenting with time-
+series models that predict a given weather metric tomorrow. <br>
+<br>
+There could be many approaches to deal with this data. While the field has found that single
+index models are successful, you are not required to use them here. Another approach that
+seems to work well with this data is recurrent neural networks. We list below some references
+that may be of help for thinking about how to work with this data.<br>
+<br>
+While the goal listed above is the most natural task, there are many other things that can be
+done with this data and these would also qualify for a project in this class. For example, we can
+predict the temperature tomorrow given the last few days’ temperature values. If you have any
+other ideas on projects related to this data, we would be happy to consider them as well.<br>
+<br>
+<b>Goal:</b> Given a single daily element (metric like temperature or precipitation), your goal is to predict 
+the value of metric on the next day or the probability that metric is over a predetermined threshold. <br> 
+<br>
+<b>Input data:</b> The following is a description of the global surface summary of day product produced by the
+National Climatic Data Center (NCDC) in Asheville, NC. The input data used in building these daily summaries 
+are the Integrated Surface Data (ISD), which includes global data obtained from the USAF Climatology Center,
+ located in the Federal Climate Complex with NCDC. The online data files begin with 1929, and are now at the 
+ Version 7 software level.<br>
+ <br>
+<b>The daily elements included in the dataset (as available from each station) are:</b><br>
+1. Mean temperature (.1 Fahrenheit)<br>
+2. Mean dew point (.1 Fahrenheit)<br>
+3. Mean sea level pressure (.1 mb)<br>
+4. Mean station pressure (.1 mb)<br>
+5. Mean visibility (.1 miles)<br>
+6. Mean wind speed (.1 knots)<br>
+7. Maximum sustained wind speed (.1 knots)<br>
+8. Maximum wind gust (.1 knots)<br>
+9. Maximum temperature (.1 Fahrenheit)<br>
+10. Minimum temperature (.1 Fahrenheit)<br>
+11. Precipitation amount (.01 inches)<br>
+12. Snow depth (.1 inches)<br>
+13. Indicator for occurrence of: Fog, Rain or Drizzle, Snow or Ice Pellets, Hail, Thunder,
+Tornado/Funnel Cloud<br>
+<br>
+For the provided dataset, we preprocessed precipitation data from 2007 to 2017 – perfect for
+developing models to predict the probability precipitation exceeds a threshold tomorrow given
+the precipitation from the previous day. As stated earlier, do download more data from 
+<a href="ftp://ftp.ncdc.noaa.gov/pub/data/gsod">GSOD</a> if you deem necessary or want to work 
+with another element. The data set can be downloaded here: 
+<a href="http://www.cs.cmu.edu/~pradeepr/701/Project/finalClimate.csv">DATA</a>
+<br>
+<b>Relevant papers:</b><br>
+<a href="https://arxiv.org/pdf/1104.2018.pdf">Efficient Learning of Generalized Linear and Single Index Models
+with Isotonic Regression</a><br>
+<a href="https://arxiv.org/pdf/1705.03536.pdf">SILVar: Single Index Latent Variable Models
+</a><br>
+<a href="https://arxiv.org/pdf/1802.05842.pdf">Neural Granger Causality for Nonlinear Time Series</a><br>
+
+	
+</tbody></table></body></html>
